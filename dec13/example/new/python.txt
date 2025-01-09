@@ -1,0 +1,4 @@
+name = Karen
+age = 20
+city = Gyumri
+15
