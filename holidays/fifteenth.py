@@ -1,10 +1,13 @@
-def zip_generator(iterable1, iterable2):
-    lenght = len(iterable1) if len(iterable1) < len(iterable2) else len(iterable2)
-    for i in range(lenght):
-        yield (iterable1[i], iterable2[i])
+def zip_generator(*iterable):
+    iters = [iter(it) for it in iterable]
+    while True:
+        try:
+            yield tuple(next(iter) for iter in iters)
+        except (StopIteration, RuntimeError):
+            break
 
 list1 = [1, 2, 3]
-list2 = ['a', 'b', 'c']
+list2 = ['a', 'b', 'c', 'd']
 result = zip_generator(list1, list2)
 for el in result:
     print(el)

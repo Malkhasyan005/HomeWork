@@ -1,4 +1,7 @@
 def custom_filter_with_yield(func, iterable):
+    if func is None:
+        func = bool
+
     for el in iterable:
         if func(el):
             yield el
