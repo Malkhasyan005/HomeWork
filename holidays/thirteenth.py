@@ -3,6 +3,7 @@ def custom_map_with_yield(func, *iterables):
     while True:
         try:
             values = [next(iter) for iter in iters]
+            print(values)
             yield func(*values)
         except StopIteration:
             break
