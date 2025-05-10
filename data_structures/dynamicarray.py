@@ -14,7 +14,9 @@ class DynamicArray:
         if self.__size == 0:
             raise IndexError("pop from empty array")
         self.__size -= 1
+        el = self.__arr[self.__size] 
         self.__arr[self.__size] = None
+        return el
 
     def size(self):
         return self.__size
